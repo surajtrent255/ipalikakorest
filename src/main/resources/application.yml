@@ -1,0 +1,94 @@
+############## Server port configuration ################   
+server:
+  port: 8888
+
+############## Configuration for the jwt ################
+jwt:
+  security:
+    key: p@n@|_|t!T3ch
+  applicationName: ishanitech
+  expirationDate: 1728000000
+  auth:
+    header: Authorization
+    schema: Bearer
+
+############## Configuration for multipart surpport ###############
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 5MB
+      max-request-size: 10MB
+--- 
+spring:
+  profiles: dev
+############## File Uploading Directory #################
+
+database:
+  username: root
+  password: root
+
+file:
+  upload:
+    directory: /ipasal/ipalika/
+    
+rest:
+  protocol: http
+  domain: localhost
+  port: 8888
+  resource-location: resource
+  
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /ipasal/ipalika/logs/ipalika-rest-api.log  
+  
+---
+spring:
+  profiles: ishani-prod
+  
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /archiesoft/ipalika/webservice/logs/ipalika-rest.log
+  
+database:
+  username: root
+  password: 24Pr1y@msh@2021
+  
+file:
+  upload:
+    directory: /home/ishani/ipalika/
+
+rest:
+  protocol: http
+  domain: 103.233.58.34
+  port: 8888
+  resource-location: resource
+  
+---
+spring:
+  profiles: prod
+  
+logging:
+  loggin:
+    level:
+      root: ERROR
+  file: /digisoft/ipalika/webservice/logs/ipalika-rest.log
+  
+database:
+  username: root
+  password: 24Pr1y@msh@2021  
+  file:
+  upload:
+    directory: /home/digisoft/ipalika/
+
+rest:
+  protocol: http
+  domain: 103.233.58.34
+  port: 8888
+  resource-location: resource
+
