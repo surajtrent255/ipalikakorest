@@ -83,22 +83,22 @@ CREATE TABLE IF NOT EXISTS `question_type` (
 	PRIMARY KEY (`type_id`)
 );
 
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('1', 'CHECKBOX');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('2', 'RADIO');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('3', 'TEXT');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('4', 'NUMBER');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('5', 'DATE');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('6', 'GPS');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('7', 'IMAGE');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('8', 'MULTI_TEXT');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('9', 'RADIO_D');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('10', 'RATING_M');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('11', 'RATING');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('12', 'CHECKBOX_N');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('13', 'DROPDOWN');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('14', 'DISTRICT');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('15', 'WARD');
-INSERT INTO `ipalika_panauti`.`question_type` (`type_id`, `type_name`) VALUES ('16', 'RADIO_M');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('1', 'CHECKBOX');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('2', 'RADIO');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('3', 'TEXT');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('4', 'NUMBER');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('5', 'DATE');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('6', 'GPS');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('7', 'IMAGE');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('8', 'MULTI_TEXT');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('9', 'RADIO_D');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('10', 'RATING_M');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('11', 'RATING');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('12', 'CHECKBOX_N');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('13', 'DROPDOWN');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('14', 'DISTRICT');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('15', 'WARD');
+INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUES ('16', 'RADIO_M');
 
 CREATE TABLE IF NOT EXISTS `options` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
