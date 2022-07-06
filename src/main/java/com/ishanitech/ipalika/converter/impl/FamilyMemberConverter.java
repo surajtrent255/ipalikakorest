@@ -34,6 +34,8 @@ public class FamilyMemberConverter extends BaseConverter<FamilyMember, FamilyMem
 		familyMember.setDateOfBirthBS(dto.getDateOfBirthBS());
 		familyMember.setIsDead(dto.getIsDead());
 		familyMember.setAge(Integer.parseInt(dto.getAge()));
+		familyMember.setDisability(dto.getDisability());
+		familyMember.setEducationalInstitute(dto.getEducationalInstitute());
 		
 		return familyMember;
 	}
@@ -58,6 +60,9 @@ public class FamilyMemberConverter extends BaseConverter<FamilyMember, FamilyMem
 		familyMemberDTO.setIsDead(entity.getIsDead());
 		familyMemberDTO.setAge(AgeCalculatorUtil.calculateAge(entity.getDateOfBirthAD()));
 //		familyMemberDTO.setAge(String.valueOf(entity.getAge()));;
+		familyMemberDTO.setDisability(entity.getDisability());
+		familyMemberDTO.setEducationalInstitute(entity.getEducationalInstitute());
+		
 		return familyMemberDTO;
 	}
 	

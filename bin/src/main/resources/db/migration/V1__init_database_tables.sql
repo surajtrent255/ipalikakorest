@@ -235,24 +235,26 @@ CREATE TABLE IF NOT EXISTS `favourite_place` (
 
 
 CREATE TABLE IF NOT EXISTS `family_member` (
-	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`family_id` VARCHAR(50) NOT NULL,
-	`full_name` VARCHAR(50) NOT NULL,
-	`relation_id` INT(11) NOT NULL,
-	`age` INT(11) NOT NULL,
-	`gender_id` INT(11) NOT NULL,
-	`marital_status` INT(11) NOT NULL,
-	`qualification_id` INT(11) NOT NULL,
-	`occupation` VARCHAR(50) NOT NULL,
-	`has_voter_id` BIT(1) NOT NULL DEFAULT b'0',
-	`health_status` VARCHAR(50) NOT NULL DEFAULT '0',
-	`member_id` VARCHAR(50) NOT NULL DEFAULT '0',
-	`is_dead` BIT(1) NOT NULL DEFAULT b'0',
-	`dob_ad` VARCHAR(45) NOT NULL,
-	`dob_bs` VARCHAR(45) NOT NULL,
-	`deleted` bit(1) NOT NULL DEFAULT b'0',
-	PRIMARY KEY (`id`),
-	UNIQUE KEY `member_id_UNIQUE` (`member_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `family_id` varchar(50) NOT NULL,
+  `full_name` varchar(50) NOT NULL,
+  `relation_id` int(11) NOT NULL,
+  `age` int(11) NOT NULL,
+  `gender_id` int(11) NOT NULL,
+  `marital_status` int(11) NOT NULL,
+  `qualification_id` int(11) NOT NULL,
+  `occupation` varchar(50) NOT NULL,
+  `has_voter_id` bit(1) NOT NULL DEFAULT b'0',
+  `health_status` varchar(50) NOT NULL DEFAULT '0',
+  `educational_institute` varchar(200) DEFAULT '',
+  `disability` varchar(100) NOT NULL,
+  `member_id` varchar(50) NOT NULL DEFAULT '0',
+  `is_dead` bit(1) NOT NULL DEFAULT b'0',
+  `dob_ad` varchar(45) NOT NULL,
+  `dob_bs` varchar(45) NOT NULL,
+  `deleted` bit(1) NOT NULL DEFAULT b'0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `member_id_UNIQUE` (`member_id`)
 );
 
 

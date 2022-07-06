@@ -18,6 +18,10 @@ public class FamilyMemberDTO {
     private String healthCondition;
     private String dateOfBirthAD;
     private String dateOfBirthBS;
+    
+    private String educationalInstitute;
+    private String disability;
+    
     private Boolean isDead;
     private Boolean submitStatus;
 }

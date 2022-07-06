@@ -11,7 +11,9 @@ INSERT INTO family_member (
 	`health_status`,
 	`member_id`,
 	`dob_ad`,
-	`dob_bs`
+	`dob_bs`,
+	`educational_institute`,
+	`disability`
 ) VALUE
 (
 	:mainId,
@@ -26,5 +28,7 @@ INSERT INTO family_member (
 	:healthCondition,
 	:memberId,
 	:dateOfBirthAD,
-	:dateOfBirthBS
+	:dateOfBirthBS,
+	:educationalInstitute,
+	:disability
 );

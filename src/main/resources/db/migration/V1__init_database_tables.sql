@@ -103,7 +103,7 @@ INSERT INTO `ipalika_dakshinkali`.`question_type` (`type_id`, `type_name`) VALUE
 CREATE TABLE IF NOT EXISTS `options` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`option_id` INT NOT NULL,
-	`option_text` VARCHAR(100) NOT NULL,
+	`option_text` VARCHAR(200) NOT NULL,
 	`question_id` INT(11) NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -231,6 +231,7 @@ CREATE TABLE IF NOT EXISTS `favourite_place` (
 	`fav_place_photo` TEXT,
 	`fav_place_location` TEXT,
 	`fav_place_ward` TEXT,
+	`added_by` INT(11) NULL DEFAULT 0,
 	`deleted` bit(1) NOT NULL DEFAULT b'0',
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `fav_place_id_UNIQUE` (`fav_place_id`)
