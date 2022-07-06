@@ -56,8 +56,8 @@ logging:
   file: /archiesoft/ipalika/webservice/logs/ipalika-rest.log
   
 database:
-  username: root
-  password: 24Pr1y@msh@2021
+  username: ishanitech
+  password: 24Pr1y@msh@
   
 file:
   upload:
@@ -65,7 +65,7 @@ file:
 
 rest:
   protocol: http
-  domain: 103.233.58.34
+  domain: 103.233.58.127
   port: 8888
   resource-location: resource
   
@@ -88,7 +88,7 @@ database:
 
 rest:
   protocol: http
-  domain: 103.233.58.34
+  domain: 103.233.58.127
   port: 8888
   resource-location: resource
 
