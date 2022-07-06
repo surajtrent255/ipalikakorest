@@ -5,7 +5,7 @@ server:
 ############## Configuration for the jwt ################
 jwt:
   security:
-    key: p@n@|_|t!T3ch
+    key: d@k5H!Nk@L!T3ch
   applicationName: ishanitech
   expirationDate: 1728000000
   auth:
