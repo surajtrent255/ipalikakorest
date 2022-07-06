@@ -80,8 +80,8 @@ logging:
   file: /digisoft/ipalika/webservice/logs/ipalika-rest.log
   
 database:
-  username: root
-  password: 24Pr1y@msh@2021  
+  username: ishanitech
+  password: 24Pr1y@msh@  
   file:
   upload:
     directory: /home/digisoft/ipalika/

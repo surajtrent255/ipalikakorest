@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ishanitech</groupId>
-	<artifactId>ipalika</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>ipalika-rest</artifactId>
+	<version>1.0</version>
 	<name>ipalika-data-collection-application</name>
 	<description>Ipalika is a data collection application.</description>
 
@@ -75,6 +75,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
