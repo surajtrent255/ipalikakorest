@@ -84,7 +84,7 @@ database:
   password: 24Pr1y@msh@  
   file:
   upload:
-    directory: /home/digisoft/ipalika/
+    directory: /home/archiesoft/photos/
 
 rest:
   protocol: http
