@@ -247,11 +247,11 @@ CREATE TABLE IF NOT EXISTS `family_member` (
 	`gender_id` int(11) NOT NULL,
 	`marital_status` int(11) NOT NULL,
 	`qualification_id` int(11) NOT NULL,
-	`occupation` varchar(50) NOT NULL,
+	`occupation` int(11) NOT NULL DEFAULT 0,
 	`has_voter_id` bit(1) NOT NULL DEFAULT b'0',
-	`health_status` varchar(50) NOT NULL DEFAULT '0',
-	`educational_institute` varchar(200) DEFAULT '',
-	`disability` varchar(100) NOT NULL,
+	`health_status` int(11) NOT NULL DEFAULT 0,
+	`educational_institute` int(11) DEFAULT NULL,
+	`disability` int(11) NOT NULL DEFAULT 0,
 	`member_id` varchar(50) NOT NULL DEFAULT '0',
 	`is_dead` bit(1) NOT NULL DEFAULT b'0',
 	`dob_ad` varchar(45) NOT NULL,
@@ -397,3 +397,31 @@ CREATE TABLE `favourite_place_report` (
 	PRIMARY KEY (`id`) USING BTREE,
 	UNIQUE INDEX `place_type` (`place_type`) USING BTREE
 );
+
+CREATE TABLE IF NOT EXISTS `differently_abled` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `differently_abled_nep` varchar(200) DEFAULT NULL,
+  `differently_abled_eng` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `educational_institute` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `educational_institute_nep` varchar(200) DEFAULT NULL,
+  `educational_institute_eng` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `health_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `health_status_nep` varchar(200) NOT NULL,
+  `health_status_eng` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `occupation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `occupation_nep` varchar(200) DEFAULT NULL,
+  `occupation_eng` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
