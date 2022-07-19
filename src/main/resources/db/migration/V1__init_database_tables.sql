@@ -20,12 +20,13 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
-INSERT INTO `user` (`id`, `full_name`, `username`, `email`, `password`, `mobile_number`, `locked`, `first_login`, `enabled`, `expired`, `registered_date`, `ward_no`)
- VALUES
-(1, 'Super Admin', 'adminsuper', 'adminsuper@gmail.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9849931288', 0, 0, 1, 0, CURRENT_TIMESTAMP(), 0),
-(2, 'Central Admin', 'admincentral', 'admincentral@gmail.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9849399058', 0, 0, 1, 0, CURRENT_TIMESTAMP(), 0),
-(3, 'Ward Admin', 'adminward', 'adminward@admin.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9841000000', 0, 0, 1, 0, CURRENT_TIMESTAMP(), 1),
-(4, 'Surveyor Demo', 'surveyourdemo', 'surveyordemo@admin.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9841000001', 0, 0, 1, 0, CURRENT_TIMESTAMP(), 1);
+INSERT INTO `user` (`id`, `full_name`, `username`, `email`, `password`, `mobile_number`, `locked`, `first_login`, `enabled`, `expired`, `registered_date`, `ward_no`) VALUES
+	(1, 'Super Admin', 'adminsuper', 'adminsuper@gmail.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9849931288', b'0', b'0', b'1', b'0', '2022-07-19 08:57:01', 0),
+	(2, 'Central Admin', 'admincentral', 'admincentral@gmail.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9849399058', b'0', b'0', b'1', b'0', '2022-07-19 08:57:01', 0),
+	(3, 'Ward Admin', 'adminward', 'adminward@admin.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9841000000', b'0', b'0', b'1', b'0', '2022-07-19 08:57:01', 1),
+	(4, 'Surveyor Demo', 'surveyourdemo', 'surveyordemo@admin.com', '$2a$11$H9wDLxAPTX5qp0doFKank.w6vgB7xPo1CJojH2AC0ovBY4Iu31oTS', '9841000001', b'0', b'0', b'1', b'0', '2022-07-19 08:57:01', 1),
+	(5, 'Manoj', 'mrokka', 'mrokka@gmail.com', '$2a$11$NfuE53bJWr5nIgayxNqlE.QFLXgSLOBayTRyl/eESb7JlsCDW5W1u', '9841984307', b'0', b'0', b'1', b'0', '2022-07-19 03:15:21', 1),
+	(6, 'Asmita', 'asmita', 'asmita@gmail.com', '$2a$11$dWpQ/IW71m9ynvpyxuEkf.jA7eJquvb4lelCmQ6wv5E5/NvoXRvRK', '9841984305', b'0', b'0', b'1', b'0', '2022-07-19 05:03:29', 1);
 
 CREATE TABLE IF NOT EXISTS `role` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -46,10 +47,13 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 	PRIMARY KEY (`user_id`, `role_id`)
 );
 
-INSERT INTO `user_role`(`user_id`, `role_id`) VALUES (1, 1);
-INSERT INTO `user_role`(`user_id`, `role_id`) VALUES (2, 2);
-INSERT INTO `user_role`(`user_id`, `role_id`) VALUES (3, 3);
-INSERT INTO `user_role`(`user_id`, `role_id`) VALUES (4, 4);
+INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
+	(1, 1),
+	(2, 2),
+	(3, 3),
+	(4, 4),
+	(5, 4),
+	(6, 4);
 
 
 CREATE TABLE IF NOT EXISTS `form` (
