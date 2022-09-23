@@ -61,6 +61,7 @@ public class PublicServiceImpl implements PublicService {
 	@Override
 	public List<ResidentDTO> searchResident(HttpServletRequest request, String searchKey, String wardNo) {
 		String caseQuery = CustomQueryCreator.generateQueryWithCase(request, PaginationTypeClass.RESIDENTS);
+		System.out.println("this is testing casequery --> "+ caseQuery);
 		List<ResidentDTO> residents;
 		
 		if(wardNo.equals("")) {

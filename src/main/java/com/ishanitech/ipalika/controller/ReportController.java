@@ -3,6 +3,7 @@ package com.ishanitech.ipalika.controller;
 
 import java.util.List;
 
+import com.ishanitech.ipalika.dto.SisuDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,6 +60,12 @@ public class ReportController {
 	ResponseDTO<List<PopulationReport>> getPopulationReport(@PathVariable("wardNo") int wardNo) {
 		return new ResponseDTO<List<PopulationReport>>(reportService.getAllPopulationReports(wardNo));
 	}
+
+	@GetMapping("/sisu")
+	ResponseDTO<List<SisuDTO>> getSisuReport(){
+		return new ResponseDTO<List<SisuDTO>>(reportService.getSisuReport());
+	}
+
 	
 	
 	/**

@@ -4,6 +4,8 @@ package com.ishanitech.ipalika.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ishanitech.ipalika.dto.SisuDTO;
+import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.springframework.stereotype.Service;
 
 import com.ishanitech.ipalika.dao.ReportDAO;
@@ -40,7 +42,7 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<PopulationReport> getAllPopulationReports(int wardNo) {
 		List<PopulationReport> pReports = reportWardDAO.getAllPopulationReports(wardNo);
-		
+
 		//List<PopulationReport> newReports = new ArrayList<PopulationReport>();
 				
 		for(PopulationReport report : pReports) {
@@ -101,6 +103,12 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<FavouritePlaceReport> getFavouritePlaceReports(int wardNo) {
 		return reportWardDAO.getAllFavouritePlaceReports(wardNo);
+	}
+
+
+	@Override
+	public List<SisuDTO> getSisuReport() {
+		return reportWardDAO.getAllSisusReport();
 	}
 
 }

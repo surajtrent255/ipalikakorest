@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 	PRIMARY KEY (`id`)
 );
 
+
 INSERT INTO `role` (`id`, `role`, `role_nepali`) VALUES
     (1, 'SUPER_ADMIN','सुपर एडमिन' ),
     (2, 'CENTRAL_ADMIN', 'केन्द्रिय एडमिन'),

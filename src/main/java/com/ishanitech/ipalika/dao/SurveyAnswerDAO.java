@@ -103,7 +103,7 @@ public interface SurveyAnswerDAO {
 	
 	@RegisterBeanMapper(value = QuestionOption.class, prefix = "q")
 	@RegisterBeanMapper(value = Option.class, prefix = "o")
-	@UseRowReducer(QuestionOptionReducer.class)
+	@UseRowReducer(QuestionOptionReducer.class) //userowreducer k ko lagi use vaxa (suraj)
 	List<QuestionOption> getAllQuestionWithOptions();
 	
 	class QuestionOptionReducer implements LinkedHashMapRowReducer<Integer, QuestionOption>  {

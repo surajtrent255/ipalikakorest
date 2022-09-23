@@ -27,7 +27,7 @@ spring:
 
 database:
   username: root
-  password: root
+  password: suraj123
 
 file:
   upload:
@@ -82,7 +82,8 @@ logging:
 database:
   username: ishanitech
   password: 24Pr1y@msh@  
-  file:
+  
+file:
   upload:
     directory: /home/digisoft/ipalika/
 

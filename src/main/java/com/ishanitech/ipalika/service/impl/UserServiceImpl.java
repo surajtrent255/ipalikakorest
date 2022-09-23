@@ -160,6 +160,7 @@ public class UserServiceImpl implements UserService {
 		try {
 		List<UserDTO> users;
 		int roleId = dbService.getDao(UserDAO.class).getRoleIdFromUserId(userId);
+		System.out.println("roleid====> "+ dbService.getDao(UserDAO.class) );
 		List<User> userInfo =  dbService.getDao(UserDAO.class).getAllUserInfo(roleId, userId);
 		users = new UserConverter().fromEntity(userInfo);
 		return users;
