@@ -3,7 +3,7 @@ package com.ishanitech.ipalika.controller;
 
 import java.util.List;
 
-import com.ishanitech.ipalika.dto.SisuDTO;
+import com.ishanitech.ipalika.dto.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ishanitech.ipalika.dto.AgriculturalFarmDTO;
-import com.ishanitech.ipalika.dto.BeekeepingDTO;
-import com.ishanitech.ipalika.dto.ResponseDTO;
 import com.ishanitech.ipalika.exception.CustomSqlException;
 import com.ishanitech.ipalika.model.ExtraReport;
 import com.ishanitech.ipalika.model.FavouritePlaceReport;
@@ -62,12 +59,34 @@ public class ReportController {
 	}
 
 	@GetMapping("/sisu")
-	ResponseDTO<List<SisuDTO>> getSisuReport(){
+	ResponseDTO<List<SisuDTO>> getSisuReport() throws CustomSqlException{
 		return new ResponseDTO<List<SisuDTO>>(reportService.getSisuReport());
 	}
 
-	
-	
+	@GetMapping("/balbalika")
+	ResponseDTO<List<BalBalikaDTO>> getBalBalikaReport() throws CustomSqlException{
+		return new ResponseDTO<List<BalBalikaDTO>>(reportService.getBalBalikaReport());
+	}
+
+	@GetMapping("/yuwa")
+	ResponseDTO<List<SisuDTO>> getYuwaReport() throws CustomSqlException {
+		return new ResponseDTO<List<SisuDTO>>(reportService.getYuwaReport());
+	}
+
+	@GetMapping("/adhBaisa")
+	ResponseDTO<List<SisuDTO>> getAdhBaisaReport() throws CustomSqlException {
+		return new ResponseDTO<List<SisuDTO>>(reportService.getAdhBaisaReport());
+	}
+
+	@GetMapping("/briddha")
+	ResponseDTO<List<SisuDTO>> getBriddhaReport() throws CustomSqlException {
+		return new ResponseDTO<List<SisuDTO>>(reportService.getBriddhaReport());
+	}
+
+	@GetMapping("/jesthaNagarik")
+	ResponseDTO<List<SisuDTO>> getJesthaNagarki() throws CustomSqlException {
+		return new ResponseDTO<List<SisuDTO>>(reportService.getJesthaNagarikReport());
+	}
 	/**
 	 * Gets question report
 	 * @return {@code ResponseDTO<List<QuestionReport>} object

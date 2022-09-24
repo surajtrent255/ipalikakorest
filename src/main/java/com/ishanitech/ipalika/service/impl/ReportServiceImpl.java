@@ -4,6 +4,7 @@ package com.ishanitech.ipalika.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ishanitech.ipalika.dto.BalBalikaDTO;
 import com.ishanitech.ipalika.dto.SisuDTO;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.springframework.stereotype.Service;
@@ -109,6 +110,31 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<SisuDTO> getSisuReport() {
 		return reportWardDAO.getAllSisusReport();
+	}
+
+	@Override
+	public List<BalBalikaDTO> getBalBalikaReport(){
+		return reportWardDAO.getAllBalBalikaReport();
+	}
+
+	@Override
+	public List<SisuDTO> getYuwaReport() {
+		return reportWardDAO.getAllYuwaReport();
+	}
+
+	@Override
+	public List<SisuDTO> getAdhBaisaReport() {
+		return reportWardDAO.getAllAdhBaisaReport();
+	}
+
+	@Override
+	public List<SisuDTO> getBriddhaReport() {
+		return reportWardDAO.getAllBriddhaReport();
+	}
+
+	@Override
+	public List<SisuDTO> getJesthaNagarikReport() {
+		return reportWardDAO.getAllJesthaNagarikReport();
 	}
 
 }

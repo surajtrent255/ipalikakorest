@@ -3,6 +3,7 @@ package com.ishanitech.ipalika.service;
 import java.util.List;
 
 import com.ishanitech.ipalika.dto.AgriculturalFarmDTO;
+import com.ishanitech.ipalika.dto.BalBalikaDTO;
 import com.ishanitech.ipalika.dto.BeekeepingDTO;
 import com.ishanitech.ipalika.dto.SisuDTO;
 import com.ishanitech.ipalika.model.ExtraReport;
@@ -20,4 +21,14 @@ public interface ReportService {
 	public List<FavouritePlaceReport> getFavouritePlaceReports(int wardNo);
 
 	public List<SisuDTO> getSisuReport();
+
+    public List<BalBalikaDTO> getBalBalikaReport();
+
+	public List<SisuDTO> getYuwaReport();
+
+	public List<SisuDTO> getAdhBaisaReport();
+
+	public List<SisuDTO> getBriddhaReport();
+
+	public List<SisuDTO> getJesthaNagarikReport();
 }

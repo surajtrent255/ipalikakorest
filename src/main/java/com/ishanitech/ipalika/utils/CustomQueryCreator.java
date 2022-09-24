@@ -122,6 +122,7 @@ public class CustomQueryCreator {
                 	break;
                 default:
                 	caseQuery += " AND a.answer_2 = '" + tole.replace("spacex", " ") + "' ";
+
                     break;
         		}
         		
@@ -143,21 +144,25 @@ public class CustomQueryCreator {
         		}
         		
         		if(sortBy.equals("")) {
+
         		switch (action.toLowerCase()) {
                 case "next":
                     if (lastSeenId > 0) {
                         caseQuery += " AND a.id < " + lastSeenId;
                         caseQuery += " ORDER BY a.id DESC ";
+
                     }
                     break;
                 case "prev":
                     if (lastSeenId > 0) {
                         caseQuery += " AND a.id > " + lastSeenId;
                         caseQuery += " ORDER BY a.id ASC ";
+
                     }
                     break;
                 default:
                     caseQuery += " ORDER BY a.id DESC ";
+
                     break;
         		}
         		}else {
@@ -172,7 +177,8 @@ public class CustomQueryCreator {
                             	
                         break;
                     case "housenumber":
-                    	caseQuery += " ORDER BY a.answer_4 " + sortByOrder + " ";
+
+                        caseQuery += " ORDER BY a.answer_4 " + sortByOrder + " ";
                         if(currentPage >= 0) {
                         caseQuery += " LIMIT " + currentPage * pageSize + ", " + pageSize ;
                         }else {
@@ -180,7 +186,8 @@ public class CustomQueryCreator {
                         }
                         break;
                     case "tole":
-                    	caseQuery += " ORDER BY a.answer_2 " + sortByOrder + " ";
+
+                        caseQuery += " ORDER BY a.answer_2 " + sortByOrder + " ";
                         if(currentPage >= 0) {
                         caseQuery += " LIMIT " + currentPage * pageSize + ", " + pageSize ;
                         }else {
@@ -189,7 +196,8 @@ public class CustomQueryCreator {
                         break;
                         
                     case "phonenumber":
-                    	caseQuery += " ORDER BY a.answer_5 " + sortByOrder + " ";
+
+                        caseQuery += " ORDER BY a.answer_5 " + sortByOrder + " ";
                         if(currentPage >= 0) {
                         caseQuery += " LIMIT " + currentPage * pageSize + ", " + pageSize ;
                         }else {
@@ -198,7 +206,8 @@ public class CustomQueryCreator {
                         break;
                         
                     case "kittanumber":
-                    	caseQuery += " ORDER BY a.answer_13 " + sortByOrder + " ";
+
+                        caseQuery += " ORDER BY a.answer_13 " + sortByOrder + " ";
                         if(currentPage >= 0) {
                         caseQuery += " LIMIT " + currentPage * pageSize + ", " + pageSize ;
                         }else {
