@@ -141,6 +141,51 @@ public class ResidentServiceImpl implements ResidentService {
 			throw new EntityNotFoundException("No Marital Status details!!!");
 		}
 		
+		try {
+			List<String> educationalInstituteList = residentDAO.getListofEducationalInstitute();
+
+			if (educationalInstituteList.size() > 0) {
+				memberFormDetails.setEducationalInstitute(educationalInstituteList);
+			}
+		} catch (UnableToExecuteStatementException ex) {
+			log.info("#### Error: " + ex.getMessage());
+			throw new EntityNotFoundException("No Educational Institute details!!!");
+		}
+		
+		try {
+			List<String> occupationList = residentDAO.getListofOccupation();
+
+			if (occupationList.size() > 0) {
+				memberFormDetails.setOccupation(occupationList);
+			}
+		} catch (UnableToExecuteStatementException ex) {
+			log.info("#### Error: " + ex.getMessage());
+			throw new EntityNotFoundException("No Occupation details!!!");
+		}
+		
+		
+		try {
+			List<String> differentlyAbledList = residentDAO.getListofDifferentlyAbled();
+
+			if (differentlyAbledList.size() > 0) {
+				memberFormDetails.setDifferentlyAbled(differentlyAbledList);
+			}
+		} catch (UnableToExecuteStatementException ex) {
+			log.info("#### Error: " + ex.getMessage());
+			throw new EntityNotFoundException("No Differently Abled details!!!");
+		}
+		
+		try {
+			List<String> healthStatusList = residentDAO.getListofHealthStatus();
+
+			if (healthStatusList.size() > 0) {
+				memberFormDetails.setHealthStatus(healthStatusList);
+			}
+		} catch (UnableToExecuteStatementException ex) {
+			log.info("#### Error: " + ex.getMessage());
+			throw new EntityNotFoundException("No Health Status details!!!");
+		}
+		
 		return memberFormDetails;
 	}
 

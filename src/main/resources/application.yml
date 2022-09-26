@@ -1,4 +1,4 @@
-############## Server port configuration ################   
+############## Server port configuration ################
 server:
   port: 8888
 
@@ -20,45 +20,45 @@ spring:
       file-size-threshold: 2KB
       max-file-size: 5MB
       max-request-size: 10MB
---- 
+---
 spring:
   profiles: dev
 ############## File Uploading Directory #################
 
 database:
   username: root
-  password: suraj123
+  password: root
 
 file:
   upload:
     directory: /ipasal/ipalika/
-    
+
 rest:
   protocol: http
   domain: localhost
   port: 8888
   resource-location: resource
-  
+
 logging:
   loggin:
     level:
       root: ERROR
-  file: /ipasal/ipalika/logs/ipalika-rest-api.log  
-  
+  file: /ipasal/ipalika/logs/ipalika-rest-api.log
+
 ---
 spring:
   profiles: ishani-prod
-  
+
 logging:
   loggin:
     level:
       root: ERROR
   file: /archiesoft/ipalika/webservice/logs/ipalika-rest.log
-  
+
 database:
   username: ishanitech
   password: 24Pr1y@msh@
-  
+
 file:
   upload:
     directory: /home/ishani/ipalika/
@@ -68,28 +68,27 @@ rest:
   domain: 103.233.58.127
   port: 8888
   resource-location: resource
-  
+
 ---
 spring:
   profiles: prod
-  
+
 logging:
   loggin:
     level:
       root: ERROR
   file: /digisoft/ipalika/webservice/logs/ipalika-rest.log
-  
+
 database:
   username: ishanitech
-  password: 24Pr1y@msh@  
-  
+  password: 24Pr1y@msh@
+
 file:
   upload:
-    directory: /home/digisoft/ipalika/
+    directory: /home/archiesoft/photos/
 
 rest:
   protocol: http
   domain: 103.233.58.127
   port: 8888
   resource-location: resource
-

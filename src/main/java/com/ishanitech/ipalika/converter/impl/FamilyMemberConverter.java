@@ -29,7 +29,14 @@ public class FamilyMemberConverter extends BaseConverter<FamilyMember, FamilyMem
             dto.setVoterCard("true");
         }
 		familyMember.setVoterCard(Boolean.parseBoolean(dto.getVoterCard()));
-		familyMember.setHealthCondition(dto.getHealthCondition());
+		
+		if(dto.getHealthCondition().equals("0")) {
+			familyMember.setHealthCondition("12");
+		} else {
+			familyMember.setHealthCondition(dto.getHealthCondition());
+		}
+		
+		
 		familyMember.setDateOfBirthAD(dto.getDateOfBirthAD());
 		familyMember.setDateOfBirthBS(dto.getDateOfBirthBS());
 		familyMember.setIsDead(dto.getIsDead());

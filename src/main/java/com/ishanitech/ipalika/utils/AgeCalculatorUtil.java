@@ -46,19 +46,19 @@ String calculatedAge = "";
        
         
        //Checking for null year, month, day 
-        if((extractedYear != null && !extractedYear.isEmpty()) && (extractedMonth != null && !extractedMonth.isEmpty()) && (extractedDay != null && !extractedDay.isEmpty())) {
+        if((extractedYear != null && !extractedYear.isEmpty() && !extractedYear.equals("०")) && (extractedMonth != null && !extractedMonth.isEmpty() && !extractedMonth.equals("०")) && (extractedDay != null && !extractedDay.isEmpty() && !extractedDay.equals("०"))) {
         	calculatedAge = extractedYear + " बर्ष " + extractedMonth + " महिना " + extractedDay + " दिन "; 
-        } else if((extractedYear != null && !extractedYear.isEmpty()) && (extractedMonth != null && !extractedMonth.isEmpty())) {
+        } else if((extractedYear != null && !extractedYear.isEmpty() && !extractedYear.equals("०")) && (extractedMonth != null && !extractedMonth.isEmpty() && !extractedMonth.equals("०"))) {
         	calculatedAge = extractedYear + " बर्ष " + extractedMonth + " महिना "; 
-        } else if((extractedYear != null && !extractedYear.isEmpty()) &&  (extractedDay != null && !extractedDay.isEmpty())) {
+        } else if((extractedYear != null && !extractedYear.isEmpty() && !extractedYear.equals("०")) &&  (extractedDay != null && !extractedDay.isEmpty() && !extractedDay.equals("०"))) {
         	calculatedAge = extractedYear + " बर्ष " +  extractedDay + " दिन "; 
-        } else if((extractedYear != null && !extractedYear.isEmpty())) {
+        } else if((extractedYear != null && !extractedYear.isEmpty() && !extractedYear.equals("०"))) {
         	calculatedAge = extractedYear + " बर्ष ";
-        } else if((extractedMonth != null && !extractedMonth.isEmpty()) && (extractedDay != null && !extractedDay.isEmpty())) {
+        } else if((extractedMonth != null && !extractedMonth.isEmpty() && !extractedMonth.equals("०")) && (extractedDay != null && !extractedDay.isEmpty() && !extractedDay.equals("०"))) {
         	calculatedAge = extractedMonth + " महिना " + extractedDay + " दिन "; 
-        } else if((extractedMonth != null && !extractedMonth.isEmpty())) {
+        } else if((extractedMonth != null && !extractedMonth.isEmpty() && !extractedMonth.equals("०"))) {
         	calculatedAge = extractedMonth + " महिना ";
-        } else if((extractedDay != null && !extractedDay.isEmpty())) {
+        } else if((extractedDay != null && !extractedDay.isEmpty() && !extractedDay.equals("०"))) {
         	calculatedAge = extractedDay + " दिन "; 
         }
         
@@ -66,7 +66,7 @@ String calculatedAge = "";
 	}
 	
 	private static String convertToDevanagari(String englishText) {
-		return englishText.replaceAll("0", "").replaceAll("1", "१").replaceAll("2", "२").replaceAll("3", "३").replaceAll("4", "४")
+		return englishText.replaceAll("0", "०").replaceAll("1", "१").replaceAll("2", "२").replaceAll("3", "३").replaceAll("4", "४")
 				.replaceAll("5", "५").replaceAll("6", "६").replaceAll("7", "७").replaceAll("8", "८").replaceAll("9", "९");
 	}
 }
