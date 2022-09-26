@@ -57,12 +57,12 @@ public interface ReportDAO {
 	Map<Integer, Double> getPopulationByGenderId();
 	
 	@SqlUpdate("REPLACE INTO population_report(based_on, option_1, option_2, option_3, option_4, option_5, option_6, total) " + 
-			"	VALUES (\"AgeGroup\", (SELECT COUNT(*) FROM family_member fm WHERE age < 6 AND fm.is_dead = 0 AND fm.deleted = 0), " + 
-			"	(SELECT COUNT(*) FROM family_member fm WHERE age BETWEEN 6 AND 16 AND fm.is_dead = 0 AND fm.deleted = 0), " + 
-			"	(SELECT COUNT(*) FROM family_member fm WHERE age BETWEEN 17 AND 32 AND fm.is_dead = 0 AND fm.deleted = 0), " + 
-			"	(SELECT COUNT(*) FROM family_member fm WHERE age BETWEEN 33 AND 54 AND fm.is_dead = 0 AND fm.deleted = 0), " + 
-			"	(SELECT COUNT(*) FROM family_member fm WHERE age BETWEEN 55 AND 65 AND fm.is_dead = 0 AND fm.deleted = 0), " + 
-			"	(SELECT COUNT(*) FROM family_member fm WHERE age > 65 AND fm.is_dead = 0 AND fm.deleted = 0), " +
+			"	VALUES (\"AgeGroup\", (SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age < 6 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age BETWEEN 6 AND 16 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age BETWEEN 17 AND 32 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age BETWEEN 33 AND 54 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age BETWEEN 55 AND 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON a.filled_id = fm.family_id WHERE age > 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.deleted = 0 AND a.filled_id IS NOT NULL), " +
 			"   :total)")
 	void insertAgeGroupReport(@Bind("total") double total);
 	

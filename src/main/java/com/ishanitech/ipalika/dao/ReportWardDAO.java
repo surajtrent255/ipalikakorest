@@ -57,12 +57,12 @@ public interface ReportWardDAO {
 	Map<Integer, Double> getPopulationByGenderId(@Bind("wardNo") int wardNo);
 	
 	@SqlUpdate("REPLACE INTO population_report(based_on, option_1, option_2, option_3, option_4, option_5, option_6, total, ward) " + 
-			"	VALUES (CONCAT((\"AgeGroup\"), :wardNo), (SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age < 6 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " + 
-			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 6 AND 16 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " + 
-			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 17 AND 32 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " + 
-			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 33 AND 54 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " + 
-			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 55 AND 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " + 
-			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age > 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo), " +
+			"	VALUES (CONCAT((\"AgeGroup\"), :wardNo), (SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age < 6 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 6 AND 16 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 17 AND 32 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 33 AND 54 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age BETWEEN 55 AND 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " + 
+			"	(SELECT COUNT(*) FROM family_member fm INNER JOIN answer a ON fm.family_id = a.filled_id WHERE age > 65 AND fm.is_dead = 0 AND fm.deleted = 0 AND a.answer_3 =:wardNo AND a.deleted = 0 AND a.filled_id IS NOT NULL), " +
 			"   :total, :wardNo)")
 	void insertAgeGroupReport(@Bind("total") double total, @Bind("wardNo") int wardNo);
 	
@@ -302,7 +302,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age<5")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  AND  age < 6 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
 	List<AgeGroupDTO> getAllSisusReport();
 
@@ -341,7 +341,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>4 and age<18")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0 AND age BETWEEN 6 and 16 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
     List<AgeGroupDTO> getAllBalBalikaReport();
 
@@ -380,7 +380,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>17 and age<40")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age BETWEEN 17 and 32 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
     List<AgeGroupDTO> getAllYuwaReport();
 
@@ -419,7 +419,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>39 and age<60")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age BETWEEN 33 and 54 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
 	List<AgeGroupDTO> getAllAdhBaisaReport();
 
@@ -459,7 +459,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>59 and age<70")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0 AND age BETWEEN 55 and 65 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
 	List<AgeGroupDTO> getAllBriddhaReport();
 
@@ -498,7 +498,7 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>69")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age > 65 AND a.deleted = 0 AND a.filled_id IS NOT NULL")
 	@RegisterBeanMapper(AgeGroupDTO.class)
 	List<AgeGroupDTO> getAllJesthaNagarikReport();
 

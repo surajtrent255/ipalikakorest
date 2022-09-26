@@ -1,9 +1,0 @@
-
-application.yml ko rest
-
-rest:
-  protocol: http
-  domain: localhost
-  port: 8888
-  resource-location: resource //resource location k ho
-
