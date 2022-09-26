@@ -30,7 +30,6 @@ public class CustomUserDetails implements UserDetails{
 	
 	public CustomUserDetails(UserDTO user) {
 		super();
-		System.out.println("inside the constructor of custormer userdetail==> " +user);
 		this.user = user;
 		this.authorities = user.getRoles().stream()
 				.map(authority -> {

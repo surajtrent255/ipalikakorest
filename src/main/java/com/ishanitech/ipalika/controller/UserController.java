@@ -72,7 +72,6 @@ public class UserController {
 	@Secured({"ROLE_SUPER_ADMIN", "ROLE_CENTRAL_ADMIN"})
 	@GetMapping
 	public ResponseDTO<List<UserDTO>> getAllUserInfo(@AuthenticationPrincipal CustomUserDetails user) throws CustomSqlException {
-		System.out.println("=======> **** ===> " + user.getUser());
 		return new ResponseDTO<List<UserDTO>> (userService.getAllUserInfo(user.getUser().getUserId()));
 	}
 

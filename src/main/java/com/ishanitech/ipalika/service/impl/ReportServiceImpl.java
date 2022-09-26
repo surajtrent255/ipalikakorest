@@ -4,8 +4,7 @@ package com.ishanitech.ipalika.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ishanitech.ipalika.dto.BalBalikaDTO;
-import com.ishanitech.ipalika.dto.SisuDTO;
+import com.ishanitech.ipalika.dto.AgeGroupDTO;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.springframework.stereotype.Service;
 
@@ -108,33 +107,37 @@ public class ReportServiceImpl implements ReportService {
 
 
 	@Override
-	public List<SisuDTO> getSisuReport() {
+	public List<AgeGroupDTO> getSisuReport() {
 		return reportWardDAO.getAllSisusReport();
 	}
 
 	@Override
-	public List<BalBalikaDTO> getBalBalikaReport(){
+	public List<AgeGroupDTO> getBalBalikaReport(){
 		return reportWardDAO.getAllBalBalikaReport();
 	}
 
 	@Override
-	public List<SisuDTO> getYuwaReport() {
+	public List<AgeGroupDTO> getYuwaReport() {
 		return reportWardDAO.getAllYuwaReport();
 	}
 
 	@Override
-	public List<SisuDTO> getAdhBaisaReport() {
+	public List<AgeGroupDTO> getAdhBaisaReport() {
 		return reportWardDAO.getAllAdhBaisaReport();
 	}
 
 	@Override
-	public List<SisuDTO> getBriddhaReport() {
+	public List<AgeGroupDTO> getBriddhaReport() {
 		return reportWardDAO.getAllBriddhaReport();
 	}
 
 	@Override
-	public List<SisuDTO> getJesthaNagarikReport() {
+	public List<AgeGroupDTO> getJesthaNagarikReport() {
 		return reportWardDAO.getAllJesthaNagarikReport();
 	}
 
+	@Override
+	public List<AgeGroupDTO> getAcademicQualificationReport(String qualType) {
+		return reportWardDAO.getAcademicQualificationReport(qualType);
+		}
 }

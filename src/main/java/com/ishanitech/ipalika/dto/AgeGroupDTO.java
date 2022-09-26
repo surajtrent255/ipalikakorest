@@ -3,7 +3,7 @@ package com.ishanitech.ipalika.dto;
 import lombok.Data;
 
 @Data
-public class SisuDTO {
+public class AgeGroupDTO {
 
     public int id;
     public String full_name;

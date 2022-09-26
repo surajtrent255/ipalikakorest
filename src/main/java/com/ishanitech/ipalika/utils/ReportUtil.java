@@ -101,7 +101,6 @@ public class ReportUtil {
 			case RADIO_D:
 			case DROPDOWN:
 				Stream.of(fullData).forEach(dat -> {
-					//System.out.println("DatDat--->"+ dat);
 					if(!dat.trim().equals(""))
 					{
 					double treamedData = Integer.parseInt(dat.trim());

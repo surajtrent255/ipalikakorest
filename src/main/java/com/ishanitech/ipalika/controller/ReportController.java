@@ -58,34 +58,51 @@ public class ReportController {
 		return new ResponseDTO<List<PopulationReport>>(reportService.getAllPopulationReports(wardNo));
 	}
 
+
+	/**
+	 * Get Report of Specific age Group
+	 * @return{@code ResponseDTO<List<AgeGoupDTO>>}</AgeGoupDTO> object
+	 * @author <b>Suraj Adhikari</b>
+	 * @throws CustomSqlException
+	 */
 	@GetMapping("/sisu")
-	ResponseDTO<List<SisuDTO>> getSisuReport() throws CustomSqlException{
-		return new ResponseDTO<List<SisuDTO>>(reportService.getSisuReport());
+	ResponseDTO<List<AgeGroupDTO>> getSisuReport() throws CustomSqlException{
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getSisuReport());
 	}
 
 	@GetMapping("/balbalika")
-	ResponseDTO<List<BalBalikaDTO>> getBalBalikaReport() throws CustomSqlException{
-		return new ResponseDTO<List<BalBalikaDTO>>(reportService.getBalBalikaReport());
+	ResponseDTO<List<AgeGroupDTO>> getBalBalikaReport() throws CustomSqlException{
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getBalBalikaReport());
 	}
 
 	@GetMapping("/yuwa")
-	ResponseDTO<List<SisuDTO>> getYuwaReport() throws CustomSqlException {
-		return new ResponseDTO<List<SisuDTO>>(reportService.getYuwaReport());
+	ResponseDTO<List<AgeGroupDTO>> getYuwaReport() throws CustomSqlException {
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getYuwaReport());
 	}
 
 	@GetMapping("/adhBaisa")
-	ResponseDTO<List<SisuDTO>> getAdhBaisaReport() throws CustomSqlException {
-		return new ResponseDTO<List<SisuDTO>>(reportService.getAdhBaisaReport());
+	ResponseDTO<List<AgeGroupDTO>> getAdhBaisaReport() throws CustomSqlException {
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getAdhBaisaReport());
 	}
 
 	@GetMapping("/briddha")
-	ResponseDTO<List<SisuDTO>> getBriddhaReport() throws CustomSqlException {
-		return new ResponseDTO<List<SisuDTO>>(reportService.getBriddhaReport());
+	ResponseDTO<List<AgeGroupDTO>> getBriddhaReport() throws CustomSqlException {
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getBriddhaReport());
 	}
 
 	@GetMapping("/jesthaNagarik")
-	ResponseDTO<List<SisuDTO>> getJesthaNagarki() throws CustomSqlException {
-		return new ResponseDTO<List<SisuDTO>>(reportService.getJesthaNagarikReport());
+	ResponseDTO<List<AgeGroupDTO>> getJesthaNagarkiReport() throws CustomSqlException {
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getJesthaNagarikReport());
+	}
+
+
+	@GetMapping("/academicQualification/{qualificationType}")
+	ResponseDTO<List<AgeGroupDTO>> getAcademicQualificationReport(@PathVariable("qualificationType") String qualType) throws CustomSqlException {
+		String qualificationType = "";
+		for (String camelSplited : qualType.split("(?<!(^|[A-Z]))(?=[A-Z])|(?<!^)(?=[A-Z][a-z])")) {
+			qualificationType += " "+camelSplited.toLowerCase();
+		}
+		return new ResponseDTO<List<AgeGroupDTO>>(reportService.getAcademicQualificationReport(qualificationType.trim()));
 	}
 	/**
 	 * Gets question report

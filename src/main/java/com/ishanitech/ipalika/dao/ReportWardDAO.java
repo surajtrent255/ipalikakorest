@@ -303,8 +303,8 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age<5")
-	@RegisterBeanMapper(SisuDTO.class)
-	List<SisuDTO> getAllSisusReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+	List<AgeGroupDTO> getAllSisusReport();
 
 	@SqlQuery("SELECT  fm.id AS id," +
 			" fm.full_name AS full_name, " +
@@ -342,8 +342,8 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>4 and age<18")
-	@RegisterBeanMapper(BalBalikaDTO.class)
-    List<BalBalikaDTO> getAllBalBalikaReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+    List<AgeGroupDTO> getAllBalBalikaReport();
 
 	@SqlQuery("SELECT  fm.id AS id," +
 			" fm.full_name AS full_name, " +
@@ -381,8 +381,8 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>17 and age<40")
-	@RegisterBeanMapper(SisuDTO.class)
-    List<SisuDTO> getAllYuwaReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+    List<AgeGroupDTO> getAllYuwaReport();
 
 	@SqlQuery("SELECT  fm.id AS id," +
 			" fm.full_name AS full_name, " +
@@ -420,8 +420,8 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>39 and age<60")
-	@RegisterBeanMapper(SisuDTO.class)
-	List<SisuDTO> getAllAdhBaisaReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+	List<AgeGroupDTO> getAllAdhBaisaReport();
 
 
 	@SqlQuery("SELECT  fm.id AS id," +
@@ -460,8 +460,8 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>59 and age<70")
-	@RegisterBeanMapper(SisuDTO.class)
-	List<SisuDTO> getAllBriddhaReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+	List<AgeGroupDTO> getAllBriddhaReport();
 
 	@SqlQuery("SELECT  fm.id AS id," +
 			" fm.full_name AS full_name, " +
@@ -499,6 +499,45 @@ public interface ReportWardDAO {
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
 			" ON fm.family_id = a.filled_id WHERE fm.deleted = 0 AND fm.is_dead = 0  and age>69")
-	@RegisterBeanMapper(SisuDTO.class)
-	List<SisuDTO> getAllJesthaNagarikReport();
+	@RegisterBeanMapper(AgeGroupDTO.class)
+	List<AgeGroupDTO> getAllJesthaNagarikReport();
+
+	@SqlQuery("SELECT  fm.id AS id," +
+			" fm.full_name AS full_name, " +
+			" fr.relation_nepali AS relation, " +
+			" fm.age AS age, " +
+			" g.gender_nepali AS gender, " +
+			" ms.marital_status_nep AS maritalStatus, " +
+			" aq.qualification_nep AS education, " +
+			" occ.occupation_nep AS occupation," +
+			" fm.has_voter_id AS voterCard," +
+			" hs.health_status_nep AS healthCondition, " +
+			" ei.educational_institute_nep AS educationalInstitute, " +
+			" da.differently_abled_nep AS disability, " +
+			" fm.member_id AS memberId, " +
+			" fm.dob_ad AS dateOfBirthAD, " +
+			" fm.dob_bs AS dateOfBirthBS, " +
+			" fm.is_dead AS isDead, " +
+			" fm.family_id AS mainId " +
+			" FROM family_member fm " +
+			" INNER JOIN family_relation fr " +
+			" ON fm.relation_id = fr.relation_id " +
+			" INNER JOIN academic_qualification aq " +
+			" ON fm.qualification_id = aq.qualification_id " +
+			" INNER JOIN gender g " +
+			" ON fm.gender_id = g.gender_id " +
+			" INNER JOIN differently_abled da" +
+			" ON fm.disability = da.id" +
+			" INNER JOIN occupation occ" +
+			" ON fm.occupation=occ.id" +
+			" INNER JOIN health_status hs" +
+			" ON fm.health_status = hs.id" +
+			" INNER JOIN educational_institute ei" +
+			" ON fm.educational_institute=ei.id" +
+			" INNER JOIN marital_status ms" +
+			" ON fm.marital_status = ms.marital_status_id" +
+			" INNER JOIN answer a" +
+			" ON fm.family_id = a.filled_id WHERE aq.qualification_eng=:qualType")
+	@RegisterBeanMapper(AgeGroupDTO.class)
+	List<AgeGroupDTO> getAcademicQualificationReport(@Bind("qualType") String qualType);
 }
