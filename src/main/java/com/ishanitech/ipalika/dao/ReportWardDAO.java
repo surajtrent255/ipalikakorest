@@ -537,7 +537,9 @@ public interface ReportWardDAO {
 			" INNER JOIN marital_status ms" +
 			" ON fm.marital_status = ms.marital_status_id" +
 			" INNER JOIN answer a" +
-			" ON fm.family_id = a.filled_id WHERE aq.qualification_eng=:qualType")
+			" ON fm.family_id = a.filled_id WHERE fm.deleted=0"+
+			" AND a.deleted = 0 AND a.filled_id IS NOT NULL"+
+			" AND aq.qualification_eng=:qualType")
 	@RegisterBeanMapper(AgeGroupDTO.class)
 	List<AgeGroupDTO> getAcademicQualificationReport(@Bind("qualType") String qualType);
 }

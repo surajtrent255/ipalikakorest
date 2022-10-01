@@ -104,7 +104,7 @@ public interface UserDAO {
 			+ " r.role as r_role FROM user u INNER JOIN user_role ur ON u.id = ur.user_id "
 			+ " INNER JOIN role r ON r.id = ur.role_id "
 			+ " WHERE u.username = :username AND u.enabled = 1")
-	@UseRowReducer(UserReducer.class)//use row reducer kina. diff betwn @userowreducer vs registerbeanmapper(suraj)
+	@UseRowReducer(UserReducer.class)
 	public User getUserByUsername(@Bind("username") String username) throws UnableToExecuteStatementException;
 	
 	
